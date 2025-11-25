@@ -19,9 +19,9 @@
 #include "esp_system.h"
 #include "sdkconfig.h"
 #include "sensor_event.hpp"
-#include "utils/average_treshold.hpp"
-#include "utils/kvs.hpp"
-#include "utils/utils.hpp"
+#include "../utils/average_treshold.hpp"
+#include "../utils/kvs.hpp"
+#include "../utils/utils.hpp"
 
 namespace lighting
 {

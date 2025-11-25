@@ -52,7 +52,7 @@ namespace mqtt
         return url;
     }
 
-    CMQTTWrapper::CMQTTWrapper(device_info_t &device_info, command_cb_t device_cmd_cb, connection_state_cb_ptr_t connection_state_cb)
+    CMQTTWrapper::CMQTTWrapper(device_info_t &device_info, command_cb_ptr_t device_cmd_cb, connection_state_cb_ptr_t connection_state_cb)
         : imqtt::Client(imqtt::BrokerConfiguration{.address = {imqtt::URI{get_config_url()}},
                                                    .security = imqtt::Insecure{}},
                         {}, {.connection = {.disable_auto_reconnect = true}}),

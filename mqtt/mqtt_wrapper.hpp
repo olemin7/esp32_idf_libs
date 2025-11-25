@@ -24,7 +24,7 @@ namespace mqtt
       std::string mac;
    };
 
-   using command_cb_t = std::unique_ptr<std::function<std::string(const std::string &msg)>>;
+   using command_cb_t = std::function<std::string(const std::string &msg)>;
    using all_send_cb_t = std::function<void(void)>;
    using connection_state_cb_t = std::function<void(bool)>;
 
@@ -34,17 +34,18 @@ namespace mqtt
    class CMQTTWrapper : public idf::mqtt::Client
    {
    private:
+      using command_cb_ptr_t = std::unique_ptr<command_cb_t>;
       using connection_state_cb_ptr_t = std::unique_ptr<connection_state_cb_t>;
       const device_info_t device_info_;
       idf::mqtt::Filter device_cmd_;
       idf::mqtt::Filter brodcast_cmd_;
-      command_cb_t device_cmd_cb_;
+      command_cb_ptr_t device_cmd_cb_;
       std::unique_ptr<all_send_cb_t> all_send_cb_;
       connection_state_cb_ptr_t connection_state_cb_;
       std::set<idf::mqtt::MessageID> send_mgs_list_;
 
    public:
-      CMQTTWrapper(device_info_t &device_info, command_cb_t device_cmd_cb = nullptr, connection_state_cb_ptr_t connection_state_cb = nullptr);
+      CMQTTWrapper(device_info_t &device_info, command_cb_ptr_t device_cmd_cb = nullptr, connection_state_cb_ptr_t connection_state_cb = nullptr);
       virtual ~CMQTTWrapper();
       void publish(const std::string &topic, const std::string &message);
       template <typename T>
