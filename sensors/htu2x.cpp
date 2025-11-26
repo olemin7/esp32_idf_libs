@@ -31,7 +31,6 @@ task(void *pvParameters)
 
     ESP_ERROR_CHECK(si7021_init_desc(&dev, I2C_NUM_0, static_cast<gpio_num_t>(CONFIG_I2C_MASTER_SDA_IO), static_cast<gpio_num_t>(CONFIG_I2C_MASTER_SCL_IO)));
 
-    gpio_dump_io_configuration(stdout, (1ULL << 8) | (1ULL << 9) | (1ULL << CONFIG_I2C_MASTER_SDA_IO) | (1ULL << CONFIG_I2C_MASTER_SCL_IO));
     uint64_t serial;
     si7021_device_id_t id;
 
@@ -101,7 +100,7 @@ task(void *pvParameters)
             }
         }
 
-        vTaskDelay(pdMS_TO_TICKS(1000));
+        vTaskDelay(pdMS_TO_TICKS(30000));
     }
 }
 

@@ -6,11 +6,11 @@
 #include <max7219.h>
 #include <array>
 #include "esp_log.h"
-#include "../sensors/sensor_event.hpp"
+#include "../../sensors/sensor_event.hpp"
 #include "font.hpp"
 #include "transformation.hpp"
-#include "../utils/kvs.hpp"
-#include "../utils/utils.hpp"
+#include "../../utils/kvs.hpp"
+#include "../../utils/utils.hpp"
 
 namespace screen
 {

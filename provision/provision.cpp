@@ -22,7 +22,7 @@
 
 #include <wifi_provisioning/manager.h>
 #include <wifi_provisioning/scheme_ble.h>
-#include "blink.hpp"
+#include "../display/blink.hpp"
 
 static const char* TAG = "provisioning";
 
