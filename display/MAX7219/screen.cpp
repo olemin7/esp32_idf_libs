@@ -1,7 +1,5 @@
 #include "screen.hpp"
 #include <stdio.h>
-#include <freertos/FreeRTOS.h>
-#include <freertos/task.h>
 #include <esp_idf_version.h>
 #include <max7219.h>
 #include <array>
